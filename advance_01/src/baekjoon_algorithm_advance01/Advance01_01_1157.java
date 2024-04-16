@@ -1,7 +1,7 @@
 package baekjoon_algorithm_advance01;
 
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Advance01_01_1157 {
@@ -11,21 +11,11 @@ public class Advance01_01_1157 {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		String strLower = str.toLowerCase();
-
-		countA(strLower);
-
+		
+		HashMap<Character, Integer> map = new HashMap<>();
+		for(char c:strLower.toCharArray()) {
+			map.put(c, map.getOrDefault(c, 0)+1);
+		}
+		
 	}
-
-	public static void countA(String str) {
-		char[] strToChar = str.toCharArray();
-		HashMap<Integer, Character> map = new HashMap<Integer, Character>();
-		for(int i=1; i<strToChar.length; i++) {
-			for(int j=0; j<i; j++) {
-				if(strToChar[i] == strToChar[j]) {
-					strToChar[i] = '\u0000';
-				}
-			}
-		}System.out.print(strToChar);
-	}
-
 }
